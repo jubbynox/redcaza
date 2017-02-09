@@ -1,0 +1,598 @@
+/**
+0 - ITEM_BACKGROUND
+1 - ITEM_FOREGROUND
+2 - WINDOW_BACKGROUND
+3 - BUTTON_FOREGROUND
+4 - pane border text colour
+5 - HILITE
+6 - selection drag window
+7 - LIST_HEADER_BACKGROUND
+8 - LIST_HEADER_TEXT
+18 - SELECTION_BAR_FOREGROUND
+19 - SELECTION_BAR_BACKGROUND
+20 - inactive selected text foreground colour
+21 - INACTIVE_SELECTION_BAR_BACKGROUND
+22 - ALTERNATE_ITEM_BACKGROUND
+23 - ALTERNATE_ITEM_FOREGROUND
+**/
+
+/*** GLOBAL STYLE ***/
+body
+{
+	background-color: {{ WINDOW_BACKGROUND }};
+	color: {{ ITEM_FOREGROUND }};
+	font-family: {{ FONT }};
+	font-size: {{ FONT_SIZE }};
+	margin: 0;
+	padding: 0;
+}
+
+form
+{
+	margin: 4px;
+}
+
+
+
+td	/* Hack for IE. */
+{
+	font-family: {{ FONT }};
+	font-size: {{ FONT_SIZE }};
+}
+
+th	/* Hack for IE. */
+{
+	font-family: {{ FONT }};
+	font-size: {{ FONT_SIZE }};
+}
+
+input	/* IE doesn't support attribute selectors, so the colouring will have to be done by Javascript. */
+{
+	font-family: {{ FONT }};
+	font-size: {{ FONT_SIZE }};
+}
+
+select
+{
+	font-family: {{ FONT }};
+	font-size: {{ FONT_SIZE }};
+	background-color: {{ ITEM_BACKGROUND }};
+	color: {{ ITEM_FOREGROUND }};
+	border-top: 1px solid {{ WINDOW_BACKGROUND }};
+	border-bottom: 1px solid {{ HILITE }};
+	border-left: 1px solid {{ WINDOW_BACKGROUND }};
+	border-right: 1px solid {{ HILITE }};
+	margin: 0px;
+	padding: 0px;
+}
+
+/*** NEW PLUGIN AVAILABLE ***/
+.newPlugin
+{
+}
+
+
+/*** DATA TABLE ***/
+/* basic skin styles */
+.yui-skin-sam .yui-dt table {
+    margin:0;padding:0;
+    font-family:arial;font-size:inherit;
+    border-collapse:collapse;*border-collapse:collapse;border-spacing:0px;
+    border:0px;
+}
+.yui-skin-sam .yui-dt thead {border-spacing:0;} /* for safari bug */
+
+.yui-skin-sam .yui-dt caption {
+    color:#FF0000;
+    font-size:85%;
+    font-weight:normal;
+    font-style:italic;
+    line-height:1;
+    padding:1em 0pt;
+    text-align:center;
+}
+
+.yui-skin-sam .yui-dt th {
+    background: {{ LIST_HEADER_BACKGROUND }};
+    color: {{ LIST_HEADER_TEXT }};
+    text-align: left;
+}
+.yui-skin-sam .yui-dt th,
+.yui-skin-sam .yui-dt th a {
+    color: {{ LIST_HEADER_TEXT }}; /* header text */
+    vertical-align:bottom;
+}
+.yui-skin-sam .yui-dt th {
+    margin:0px;padding:0px;
+    border-top:1px solid {{ HILITE }};
+    border-left:1px solid {{ HILITE }};
+    border-right:1px solid {{ ITEM_BACKGROUND }};
+    border-bottom:1px solid {{ ITEM_BACKGROUND }};
+}
+.yui-skin-sam .yui-dt tr.yui-dt-first td {
+    border-top: 0px solid;  /* tbody top border  */
+    color: {{ ITEM_FOREGROUND }}
+}
+.yui-skin-sam .yui-dt th .yui-dt-liner {
+    white-space:nowrap;
+}
+.yui-skin-sam .yui-dt-liner {
+    margin:0;padding:0;
+    padding:2px 4px 2px 4px; /* cell padding */
+}
+.yui-skin-sam .yui-dt-coltarget {
+    width: 5px;
+    background-color: red;
+}
+.yui-skin-sam .yui-dt td {
+    margin:0;padding:0;
+    border:none;
+    text-align:left;
+    color: {{ ITEM_FOREGROUND }}
+}
+.yui-skin-sam .yui-dt-list td {
+    border-right:none; /* disable inner column border in list mode */
+}
+.yui-skin-sam .yui-dt-resizer {
+    width:6px;
+}
+
+/* mask */
+.yui-skin-sam .yui-dt-mask {
+    background-color: #000;
+    opacity: .25;
+    *filter: alpha(opacity=25);  /* Set opacity in IE */
+}
+
+/* messaging */
+.yui-skin-sam .yui-dt-message  {
+    background-color: {{ SELECTION_BAR_BACKGROUND }};
+    color: {{ SELECTION_BAR_FOREGROUND }}
+}
+
+/* scrolling */
+.yui-skin-sam .yui-dt-scrollable table {border:none;}
+.yui-skin-sam .yui-dt-scrollable .yui-dt-hd {border-left:1px solid #7F7F7F;border-top:1px solid #7F7F7F;border-right:1px solid #7F7F7F;}
+.yui-skin-sam .yui-dt-scrollable .yui-dt-bd {border-left:1px solid #7F7F7F;border-bottom:1px solid #7F7F7F;border-right:1px solid #7F7F7F;background-color:#FFF;}
+.yui-skin-sam .yui-dt-scrollable .yui-dt-data tr.yui-dt-last td {border-bottom:1px solid #7F7F7F;}
+
+/* sortable columns */
+.yui-skin-sam thead .yui-dt-sortable {
+    cursor:pointer;
+}
+.yui-skin-sam th.yui-dt-asc,
+.yui-skin-sam th.yui-dt-desc {
+    background:url(../../../../assets/skins/sam/sprite.png) repeat-x 0 -100px; /* sorted header gradient */
+}
+.yui-skin-sam th.yui-dt-sortable .yui-dt-label {
+    margin-right:10px;
+}
+.yui-skin-sam th.yui-dt-asc .yui-dt-liner {
+    background:url(dt-arrow-up.png) no-repeat right; /* sorted header gradient */
+}
+.yui-skin-sam th.yui-dt-desc .yui-dt-liner {
+    background:url(dt-arrow-dn.png) no-repeat right; /* sorted header gradient */
+}
+
+/* striping */
+.yui-skin-sam tr.yui-dt-even { background-color: {{ ITEM_BACKGROUND }}; }
+.yui-skin-sam tr.yui-dt-odd { background-color: {{ ALTERNATE_ITEM_BACKGROUND }}; }
+.yui-skin-sam tr.yui-dt-even td.yui-dt-asc,
+.yui-skin-sam tr.yui-dt-even td.yui-dt-desc { background-color: {{ ITEM_BACKGROUND }}; }
+.yui-skin-sam tr.yui-dt-odd td.yui-dt-asc,
+.yui-skin-sam tr.yui-dt-odd td.yui-dt-desc { background-color: {{ ALTERNATE_ITEM_BACKGROUND }}; }
+
+/* Don't disable striping in list mode */
+.yui-skin-sam .yui-dt-list tr.yui-dt-even { background-color: {{ ITEM_BACKGROUND }}; }
+.yui-skin-sam .yui-dt-list tr.yui-dt-odd { background-color: {{ ALTERNATE_ITEM_BACKGROUND }}; }
+.yui-skin-sam .yui-dt-list tr.yui-dt-even td.yui-dt-asc,
+.yui-skin-sam .yui-dt-list tr.yui-dt-even td.yui-dt-desc { background-color: {{ ITEM_BACKGROUND }}; }
+.yui-skin-sam .yui-dt-list tr.yui-dt-odd td.yui-dt-asc,
+.yui-skin-sam .yui-dt-list tr.yui-dt-odd td.yui-dt-desc { background-color: {{ ALTERNATE_ITEM_BACKGROUND }}; }
+
+/* highlighting */
+.yui-skin-sam th.yui-dt-highlighted,
+.yui-skin-sam th.yui-dt-highlighted a {
+    background-color: {{ SELECTION_BAR_BACKGROUND }};
+    color: {{ SELECTION_BAR_FOREGROUND }};
+}
+.yui-skin-sam tr.yui-dt-highlighted,
+.yui-skin-sam tr.yui-dt-highlighted td.yui-dt-asc,
+.yui-skin-sam tr.yui-dt-highlighted td.yui-dt-desc,
+.yui-skin-sam tr.yui-dt-even td.yui-dt-highlighted,
+.yui-skin-sam tr.yui-dt-odd td.yui-dt-highlighted {
+    cursor:pointer;
+    background-color: {{ SELECTION_BAR_BACKGROUND }};
+    color: {{ SELECTION_BAR_FOREGROUND }};
+}
+
+/* enable highlighting in list mode */
+.yui-skin-sam .yui-dt-list th.yui-dt-highlighted,
+.yui-skin-sam .yui-dt-list th.yui-dt-highlighted a {
+    background-color: {{ SELECTION_BAR_BACKGROUND }};
+    color: {{ SELECTION_BAR_FOREGROUND }};
+}
+.yui-skin-sam .yui-dt-list tr.yui-dt-highlighted,
+.yui-skin-sam .yui-dt-list tr.yui-dt-highlighted td.yui-dt-asc,
+.yui-skin-sam .yui-dt-list tr.yui-dt-highlighted td.yui-dt-desc,
+.yui-skin-sam .yui-dt-list tr.yui-dt-even td.yui-dt-highlighted,
+.yui-skin-sam .yui-dt-list tr.yui-dt-odd td.yui-dt-highlighted {
+    cursor:pointer;
+    background-color: {{ SELECTION_BAR_BACKGROUND }};
+    color: {{ SELECTION_BAR_FOREGROUND }};
+}
+
+/* selection */
+.yui-skin-sam th.yui-dt-selected,
+.yui-skin-sam th.yui-dt-selected a {
+    background-color: {{ SELECTION_BAR_BACKGROUND }};
+    color: {{ SELECTION_BAR_FOREGROUND }};
+}
+.yui-skin-sam tr.yui-dt-selected td,
+.yui-skin-sam tr.yui-dt-selected td.yui-dt-asc,
+.yui-skin-sam tr.yui-dt-selected td.yui-dt-desc {
+    background-color: {{ SELECTION_BAR_BACKGROUND }};
+    color: {{ SELECTION_BAR_FOREGROUND }};
+}
+.yui-skin-sam tr.yui-dt-even td.yui-dt-selected,
+.yui-skin-sam tr.yui-dt-odd td.yui-dt-selected {
+    background-color: {{ SELECTION_BAR_BACKGROUND }};
+    color: {{ SELECTION_BAR_FOREGROUND }};
+}
+
+/* enable selection in list mode */
+.yui-skin-sam .yui-dt-list th.yui-dt-selected,
+.yui-skin-sam .yui-dt-list th.yui-dt-selected a {
+    background-color: {{ SELECTION_BAR_BACKGROUND }};
+}
+.yui-skin-sam .yui-dt-list tr.yui-dt-selected td,
+.yui-skin-sam .yui-dt-list tr.yui-dt-selected td.yui-dt-asc,
+.yui-skin-sam .yui-dt-list tr.yui-dt-selected td.yui-dt-desc {
+    background-color: {{ SELECTION_BAR_BACKGROUND }};
+    color: {{ SELECTION_BAR_FOREGROUND }};
+}
+.yui-skin-sam .yui-dt-list tr.yui-dt-even td.yui-dt-selected,
+.yui-skin-sam .yui-dt-list tr.yui-dt-odd td.yui-dt-selected {
+    background-color: {{ SELECTION_BAR_BACKGROUND }};
+    color: {{ SELECTION_BAR_FOREGROUND }};
+}
+
+/* pagination */
+.yui-skin-sam .yui-dt-paginator {
+    display:block;margin:6px 0;white-space:nowrap;
+}
+.yui-skin-sam .yui-dt-paginator .yui-dt-first,
+.yui-skin-sam .yui-dt-paginator .yui-dt-last,
+.yui-skin-sam .yui-dt-paginator .yui-dt-selected {
+    padding:2px 6px;
+}
+.yui-skin-sam .yui-dt-paginator a.yui-dt-first,
+.yui-skin-sam .yui-dt-paginator a.yui-dt-last {
+    text-decoration:none;
+}
+.yui-skin-sam .yui-dt-paginator .yui-dt-previous,
+.yui-skin-sam .yui-dt-paginator .yui-dt-next {
+    display:none;
+}
+.yui-skin-sam a.yui-dt-page {
+    border:1px solid #CBCBCB;
+    padding:2px 6px;
+    text-decoration:none;
+    background-color:#fff
+}
+.yui-skin-sam .yui-dt-selected {
+    border:1px solid #fff;
+    background-color:#fff;
+}
+
+
+/*** LAYOUT ***/
+/* Remove the dotted border on the resize proxy */
+.yui-skin-sam .yui-layout .yui-resize-proxy {
+    border: none;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+}
+/* During resize, hide the handles */
+.yui-skin-sam .yui-layout .yui-resize-resizing .yui-resize-handle {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+/* Style the div inside the resize proxy */
+.yui-skin-sam .yui-layout .yui-resize-proxy div {
+    position: absolute;
+    border: 4px solid {{ WINDOW_BACKGROUND }};
+    background-color: {{ HILITE }};
+}
+
+/* Set the color of the Active resize handle */
+.yui-skin-sam .yui-layout .yui-resize .yui-resize-handle-active {
+    background-color: {{ HILITE }};
+}
+/* Styles for the left handle */
+.yui-skin-sam .yui-layout .yui-resize-proxy .yui-layout-handle-l {
+    width: 0px;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+/* Styles for the right handle */
+.yui-skin-sam .yui-layout .yui-resize-proxy .yui-layout-handle-r {
+    width: 0px;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+/* Styles for the bottom handle */
+.yui-skin-sam .yui-layout .yui-resize-proxy .yui-layout-handle-b {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 0px;
+}
+/* Styles for the top handle */
+.yui-skin-sam .yui-layout .yui-resize-proxy .yui-layout-handle-t {
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 0px;
+}
+
+/* Give the header a blue backgorund */
+.yui-skin-sam .yui-layout .yui-layout-hd {
+    background:url(sprite.png) repeat-x 0 -1400px;
+    border: 1px solid #808080;
+}
+/* Set the background color */
+.yui-skin-sam .yui-layout {
+    background-color: {{ ITEM_BACKGROUND }};
+}
+/* Style the text in the header */
+.yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-hd h2 {
+    font-weight: bold;
+    color: #fff;
+    padding: 3px;
+}
+
+/* Style the body */
+.yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-bd {
+    border: 4px transparent;
+    background-color: {{ ITEM_BACKGROUND }};
+    text-align: left;
+}
+/* Add a border to the bottom of the body because there is no footer */
+.yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-bd-noft {
+    border-bottom: 4px transparent;
+}
+/* Add a border to the top of the body because there is no header */
+.yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-bd-nohd {
+    border-top: 4px transparent;
+}
+
+/* Style the Clip */
+.yui-skin-sam .yui-layout .yui-layout-clip {
+    position: absolute;
+    height: 20px;
+    background-color: #EDF5FF;
+    display: none;
+    border: 1px solid #808080;
+}
+/* Style the footer */
+.yui-skin-sam .yui-layout div.yui-layout-ft {
+    border: 1px solid #808080;
+    border-top: none;
+    *border-top-width: 0;
+    background-color: #f2f2f2;
+}
+
+/* Remove the color from the resize handle */
+.yui-skin-sam .yui-layout-unit .yui-resize-handle {
+    /*background-color: transparent;*/
+    background-color: {{ WINDOW_BACKGROUND }};
+}
+/* Reposition the handles */
+.yui-skin-sam .yui-layout-unit .yui-resize-handle-r {
+    width: 9px;
+    border-left: 4px solid {{ WINDOW_BACKGROUND }};
+    border-right: 4px solid {{ WINDOW_BACKGROUND }};
+    border-bottom: 0px;
+    border-top: 0px;
+    background-color: {{ HILITE }};
+}
+.yui-skin-sam .yui-layout-unit .yui-resize-handle-l {
+    width: 9px;
+    border-left: 4px solid {{ WINDOW_BACKGROUND }};
+    border-right: 4px solid {{ WINDOW_BACKGROUND }};
+    border-bottom: 0px;
+    border-top: 0px;
+    background-color: {{ HILITE }};
+}
+.yui-skin-sam .yui-layout-unit .yui-resize-handle-b {
+    height: 9px;
+    border-top: 4px solid {{ WINDOW_BACKGROUND }};
+    border-bottom: 4px solid {{ WINDOW_BACKGROUND }};
+    border-left: 0px;
+    border-right: 0px;
+    background-color: {{ HILITE }};
+}
+.yui-skin-sam .yui-layout-unit .yui-resize-handle-t {
+    height: 9px;
+    border-top: 4px solid {{ WINDOW_BACKGROUND }};
+    border-bottom: 4px solid {{ WINDOW_BACKGROUND }};
+    border-left: 0px;
+    border-right: 0px;
+    background-color: {{ HILITE }};
+}
+/* Add the gripper */
+.yui-skin-sam .yui-layout-unit .yui-resize-handle-r .yui-layout-resize-knob,
+.yui-skin-sam .yui-layout-unit .yui-resize-handle-l .yui-layout-resize-knob {
+    height: 0px;
+    width: 0px;
+}
+/* Add the gripper */
+.yui-skin-sam .yui-layout-unit .yui-resize-handle-t .yui-layout-resize-knob,
+.yui-skin-sam .yui-layout-unit .yui-resize-handle-b .yui-layout-resize-knob {
+    height: 0px;
+    width: 0px;
+}
+
+
+
+/*** TREE ***/
+.ygtvlabel,.ygtvlabel:link,.ygtvlabel:visited,.ygtvlabel:hover
+{
+	margin-left:2px;
+	text-decoration:none;
+	background-color: {{ ITEM_BACKGROUND }};
+	cursor:pointer;
+}
+
+.ygtvfocus
+{
+	background-color: {{ SELECTION_BAR_BACKGROUND }};
+	color: {{ SELECTION_BAR_FOREGROUND}};
+	border:none;
+}
+
+.ygtvfocus .ygtvlabel,.ygtvfocus .ygtvlabel:link,.ygtvfocus .ygtvlabel:visited,.ygtvfocus .ygtvlabel:hover
+{
+	background-color: {{ SELECTION_BAR_BACKGROUND }};
+	color: {{ SELECTION_BAR_FOREGROUND}};
+}
+
+.ygtvtn
+{
+	background: url(/img/treeview/tn.gif) no-repeat 0px 0px;
+	width: 16px;
+	height: 22px;
+	-ms-filter: mask(color={{ ITEM_FOREGROUND }});
+	filter: mask(color={{ ITEM_FOREGROUND }});
+}
+
+.ygtvtm
+{
+	background: url(/img/treeview/tm.gif) no-repeat 0px 0px;
+	width: 16px;
+	cursor: pointer;
+	height: 22px;
+	-ms-filter: mask(color={{ ITEM_FOREGROUND }});
+	filter: mask(color={{ ITEM_FOREGROUND }});
+}
+
+.ygtvtmh
+{
+	background: url(/img/treeview/tm.gif) no-repeat 0px 0px;
+	width: 16px;
+	cursor: pointer;
+	height: 22px;
+	-ms-filter: mask(color={{ ITEM_FOREGROUND }});
+	filter: mask(color={{ ITEM_FOREGROUND }});
+}
+
+.ygtvtp
+{
+	background: url(/img/treeview/tp.gif) no-repeat 0px 0px;
+	width: 16px;
+	cursor: pointer;
+	height: 22px;
+	-ms-filter: mask(color={{ ITEM_FOREGROUND }});
+	filter: mask(color={{ ITEM_FOREGROUND }});
+}
+
+.ygtvtph
+{
+	background: url(/img/treeview/tp.gif) no-repeat 0px 0px;
+	width: 16px;
+	cursor: pointer;
+	height: 22px;
+	-ms-filter: mask(color={{ ITEM_FOREGROUND }});
+	filter: mask(color={{ ITEM_FOREGROUND }});
+}
+
+.ygtvln
+{
+	background: url(/img/treeview/ln.gif) no-repeat 0px 0px;
+	width: 16px;
+	height: 22px;
+	-ms-filter: mask(color={{ ITEM_FOREGROUND }});
+	filter: mask(color={{ ITEM_FOREGROUND }});
+}
+
+.ygtvlm
+{
+	background: url(/img/treeview/lm.gif) no-repeat 0px 0px;
+	width: 16px;
+	cursor: pointer;
+	height: 22px;
+	-ms-filter: mask(color={{ ITEM_FOREGROUND }});
+	filter: mask(color={{ ITEM_FOREGROUND }});
+}
+
+.ygtvlmh
+{
+	background: url(/img/treeview/lm.gif) no-repeat 0px 0px;
+	width: 16px;
+	cursor: pointer;
+	height: 22px;
+	-ms-filter: mask(color={{ ITEM_FOREGROUND }});
+	filter: mask(color={{ ITEM_FOREGROUND }});
+}
+
+.ygtvlp
+{
+	background: url(/img/treeview/lp.gif) no-repeat 0px 0px;
+	width: 16px;
+	cursor: pointer;
+	height: 22px;
+	-ms-filter: mask(color={{ ITEM_FOREGROUND }});
+	filter: mask(color={{ ITEM_FOREGROUND }});
+}
+
+.ygtvlph
+{
+	background: url(/img/treeview/lp.gif) no-repeat 0px 0px;
+	width: 16px;
+	cursor: pointer;
+	height: 22px;
+	-ms-filter: mask(color={{ ITEM_FOREGROUND }});
+	filter: mask(color={{ ITEM_FOREGROUND }});
+}
+
+.ygtvloading
+{
+	background: url(/img/treeview/loading.gif) no-repeat 0px 0px;
+	width: 16px;
+	height: 22px;
+	-ms-filter: mask(color={{ ITEM_FOREGROUND }});
+	filter: mask(color={{ ITEM_FOREGROUND }});
+}
+
+.ygtvdepthcell
+{
+	background: url(/img/treeview/vline.gif) no-repeat 0px 0px;
+	width: 16px;
+	height: 22px;
+	-ms-filter: mask(color={{ ITEM_FOREGROUND }});
+	filter: mask(color={{ ITEM_FOREGROUND }});
+}
+
+
+/*** MENU ITEM SELECTION ***/
+.yui-skin-sam .yuimenuitemlabel-selected
+{
+	background-color: {{ INACTIVE_SELECTION_BAR_BACKGROUND }};
+	color: {{ LIST_HEADER_TEXT }};
+}
+
+
+/*** NEW PLUGIN AVAILABLE ***/
+.newPlugin
+{
+    background-color: {{ SELECTION_BAR_BACKGROUND }};
+    color: {{ SELECTION_BAR_FOREGROUND }};
+}
+a.newPlugin:link, a.newPlugin:visited, a.newPlugin:hover, a.newPlugin:active
+{
+    text-decoration: none;
+}

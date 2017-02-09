@@ -1,0 +1,63 @@
+application: winampbanacekmusic-hrd
+version: 1-1
+runtime: python27
+api_version: 1
+threadsafe: false
+module: default
+
+default_expiration: "24h"
+
+handlers:
+
+- url: /remote_api
+  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
+  login: admin
+
+- url: /pluginPage.*
+  script: /mediasearch/start.py
+
+- url: /getSupportedApps
+  script: /mediasearch/start.py
+  
+- url: /winamp.css
+  script: /mediasearch/start.py
+
+- url: /addComments
+  script: /mediasearch/start.py
+
+- url: /google/searchUrl
+  script: /mediasearch/start.py
+- url: /google/addBadMedia
+  script: /mediasearch/start.py
+- url: /google/getIgnoredSites
+  script: /mediasearch/start.py
+  
+- url: /youtube/getVideo
+  script: /mediasearch/start.py
+  
+- url: /lastfm/getRadioTrack
+  script: /mediasearch/start.py
+  
+- url: /((img|scripts|css).*\.(gif|png|jpg|js|css))
+  static_files: \1
+  upload: ((img|scripts|css).*\.(gif|png|jpg|js|css))
+  
+- url: /googlemediasearch.*
+  static_files: html/GoogleMediaSearch.html
+  upload: html/(GoogleMediaSearch.html)
+  
+- url: /youtubesearch.*
+  static_files: html/YouTubeSearch.html
+  upload: html/(YouTubeSearch.html)
+  
+- url: /lastfmsearch.*
+  static_files: html/LastFMSearch.html
+  upload: html/(LastFMSearch.html)
+  
+- url: /install_redcaza.exe
+  static_files: installer/install_redcaza.exe
+  upload: installer/(install_redcaza.exe)
+  
+- url: /*.*
+  static_files: html/Redcaza.html
+  upload: html/(Redcaza.html)
